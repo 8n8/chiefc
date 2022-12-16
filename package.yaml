@@ -10,6 +10,8 @@ ghc-options:
 - -Wno-missing-safe-haskell-mode
 - -Wno-safe
 - -Wno-implicit-prelude
+- -Wno-missing-kind-signatures
+- -Wno-prepositive-qualified-module
 
 executables:
   chiefc-exe:
