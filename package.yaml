@@ -12,6 +12,9 @@ ghc-options:
 - -Wno-implicit-prelude
 - -Wno-missing-kind-signatures
 - -Wno-prepositive-qualified-module
+- -Wno-unsafe
+- -Wno-type-defaults
+
 
 executables:
   chiefc-exe:
@@ -36,3 +39,5 @@ tests:
      - -with-rtsopts=-N
      dependencies:
      - chiefc
+     - tasty
+     - tasty-hunit
