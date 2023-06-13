@@ -4,16 +4,22 @@ version:             0.1.0.0
 dependencies:
 - base
 
+default-extensions:
+- OverloadedStrings
+
 ghc-options:
 - -Weverything
 - -Werror
 - -Wno-missing-safe-haskell-mode
 - -Wno-safe
-- -Wno-implicit-prelude
 - -Wno-missing-kind-signatures
 - -Wno-prepositive-qualified-module
 - -Wno-unsafe
 - -Wno-type-defaults
+- -Wno-unused-top-binds
+- -Wno-unused-imports
+- -Wno-implicit-prelude
+- -Wno-missing-import-lists
 
 
 executables:
@@ -25,19 +31,23 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
 
-
 library:
   source-dirs: src
+  dependencies:
+  - text
+  - containers
 
 tests:
-   chiefc-test:
-     main: Main.hs
-     source-dirs: test
-     ghc-options:
-     - -threaded
-     - -rtsopts
-     - -with-rtsopts=-N
-     dependencies:
-     - chiefc
-     - tasty
-     - tasty-hunit
+  chiefc-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tasty
+    - tasty-hunit
+    - chiefc
+    - text
+    - containers
